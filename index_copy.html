@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vintage-Tech</title>
+        <link rel="stylesheet" href="style_copy.css">
+    </head>
+    <body>
+        <header class="topbar">
+            <nav class="navbar">
+                <a href="#" class="logo">Vintage Tech</a>
+                <div class="nav-links">
+                    <ul>
+                        <li class="active"><a href="index copy.html">Home</a></li>
+                        <li><a href="console.html">Console</a></li>
+                        <li><a href="music.html">Music</a></li>
+                        <li><a href="phone.html">Phone</a></li>
+                        <li><a href="other.html">Other</a></li>
+                    </ul>
+                </div>
+                <img src="image/menu-btn.png" alt="menu" class="menu-hamburger">
+            </nav>
+        </header>
+
+        <div class="blur-layer"></div>
+
+        <main>
+            <div class="QR">
+            <h1 class="question">All the best of your childhood in one place !</h1>
+            <h2 class="response">Game Boy, Ipod, Platine, & more</h2>
+            <h2 class="question1">Want to rediscover your favorite games/objects?</h2>
+            <h2 class="response1">Press: <a href="console.html">Console</a>, <a href="music.html">Music</a>, <a href="phone.html">Phone</a>, or <a href="other.html">Other</a></h2>
+            </div>
+        </main>
+    </body>
+    <script>
+    const menuHamburger = document.querySelector(".menu-hamburger")
+    const navLinks = document.querySelector(".nav-links")
+    
+    menuHamburger.addEventListener('click',()=>{
+        navLinks.classList.toggle('mobile-menu')
+    })
+    </script>
+    <script>
+    const blurLayer = document.querySelector('.blur-layer');
+    const question = document.querySelector('.question');
+    const response = document.querySelector('.response');
+    const question1 = document.querySelector('.question1');
+    const response1 = document.querySelector('.response1');
+    const navbarHeight = 70; // Hauteur du navbar (approximativement)
+
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    // Calcul du flou progressif : de 0 à 10px max
+    const maxBlur = 10; // flou maximum
+    const scrollFactor = 20; // plus petit = flou plus rapide
+    const blurValue = Math.min(scrollY / scrollFactor, maxBlur);
+
+    // Appliquer le flou progressivement
+    blurLayer.style.backdropFilter = `blur(${blurValue}px)`;
+    blurLayer.style.transition = 'backdrop-filter 0.5s ease';
+
+    // Vérifier si chaque élément passe sous le navbar
+    checkElementBlur(question, scrollY, 200, navbarHeight);
+    checkElementBlur(response, scrollY, 400, navbarHeight);
+    checkElementBlur(question1, scrollY, 550, navbarHeight);
+    checkElementBlur(response1, scrollY, 700, navbarHeight);
+});
+
+function checkElementBlur(element, scrollY, elementTop, navbarHeight) {
+    if (scrollY + navbarHeight > elementTop) {
+        element.classList.add('blur');
+    } else {
+        element.classList.remove('blur');
+    }
+}
+
+    </script>
+
+</html>

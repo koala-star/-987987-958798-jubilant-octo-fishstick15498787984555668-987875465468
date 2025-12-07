@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavBar</title>
+    <link rel="stylesheet" href="styleC.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="logo">Vintage Tech</a>
+        <div class="nav-links">
+            <ul>
+                <li><a href="index_copy.html">Home</a></li>
+                <li class="active"><a href="console.html">Console</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="phone.html">Phone</a></li>
+                <li><a href="other.html">Other</a></li>
+            </ul>
+        </div>
+        <img src="image/menu-btn.png" alt="menu" class="menu-hamburger">
+    </nav>
+    <header></header>
+    
+</body>
+<script>
+    const menuHamburger = document.querySelector(".menu-hamburger")
+    const navLinks = document.querySelector(".nav-links")
+
+    menuHamburger.addEventListener('click',()=>{
+        navLinks.classList.toggle('mobile-menu')
+    })
+</script>
+</html>
